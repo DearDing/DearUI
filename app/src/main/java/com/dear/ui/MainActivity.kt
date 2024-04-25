@@ -15,6 +15,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dear.ui.activity.TanTanActivity
+import com.dear.ui.activity.ViewPagerScroll2Activity
 import com.dear.ui.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -40,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this, TanTanActivity::class.java))
             }
             1 -> {
-
+                startActivity(Intent(this, ViewPagerScroll2Activity::class.java))
             }
         }
     }

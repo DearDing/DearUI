@@ -1,28 +1,31 @@
 package com.dear.ui.activity
 
 import android.annotation.SuppressLint
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.dear.ui.R
+import com.dear.ui.databinding.ActivityTanTanBinding
 import com.dear.ui.recyclerview.card.CardLayoutManager
 import com.dear.ui.recyclerview.card.CardSetting
 import com.dear.ui.recyclerview.card.CardTouchHelperCallback
 import com.dear.ui.recyclerview.card.ReItemTouchHelper
 
-class TanTanActivity : AppCompatActivity() {
+/**
+ * 仿探探卡片滑动样式
+ * 可配置上、下、左、右 四个方向
+ * 具体参数通过 @see com.dear.ui.recyclerview.card.CardSetting 配置
+ */
+class TanTanActivity : BaseActivity<ActivityTanTanBinding>() {
 
-    private lateinit var mRvView: RecyclerView
     private var mRvAdapter: CardAdapter? = null
     private var mHelperCallback: CardTouchHelperCallback<CardBean>? = null
     private val mOption: RequestOptions =
@@ -42,18 +45,14 @@ class TanTanActivity : AppCompatActivity() {
         )
     )
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tan_tan)
-        mRvView = findViewById(R.id.rv_pic_view)
-
+    override fun initView() {
         val setting = CardSetting()
-        mHelperCallback = CardTouchHelperCallback(mRvView, urlArr, setting)
+        mHelperCallback = CardTouchHelperCallback(mDB.rvPicView, urlArr, setting)
         val mReItemTouchHelper = ReItemTouchHelper(mHelperCallback)
         val layoutManager = CardLayoutManager(mReItemTouchHelper, setting)
-        mRvView.layoutManager = layoutManager
+        mDB.rvPicView.layoutManager = layoutManager
         mRvAdapter = CardAdapter()
-        mRvView.adapter = mRvAdapter
+        mDB.rvPicView.adapter = mRvAdapter
     }
 
     private fun onItemClickEvent(bean: CardBean) {
