@@ -14,10 +14,10 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.dear.ui.R
 import com.dear.ui.databinding.ActivityTanTanBinding
-import com.dear.ui.recyclerview.card.CardLayoutManager
-import com.dear.ui.recyclerview.card.CardSetting
-import com.dear.ui.recyclerview.card.CardTouchHelperCallback
-import com.dear.ui.recyclerview.card.ReItemTouchHelper
+import com.dear.ui.widget.recyclerview.card.CardLayoutManager
+import com.dear.ui.widget.recyclerview.card.CardSetting
+import com.dear.ui.widget.recyclerview.card.CardTouchHelperCallback
+import com.dear.ui.widget.recyclerview.card.ReItemTouchHelper
 
 /**
  * 仿探探卡片滑动样式
@@ -47,9 +47,21 @@ class TanTanActivity : BaseActivity<ActivityTanTanBinding>() {
 
     override fun initView() {
         val setting = CardSetting()
-        mHelperCallback = CardTouchHelperCallback(mDB.rvPicView, urlArr, setting)
-        val mReItemTouchHelper = ReItemTouchHelper(mHelperCallback)
-        val layoutManager = CardLayoutManager(mReItemTouchHelper, setting)
+        mHelperCallback =
+            CardTouchHelperCallback(
+                mDB.rvPicView,
+                urlArr,
+                setting
+            )
+        val mReItemTouchHelper =
+            ReItemTouchHelper(
+                mHelperCallback
+            )
+        val layoutManager =
+            CardLayoutManager(
+                mReItemTouchHelper,
+                setting
+            )
         mDB.rvPicView.layoutManager = layoutManager
         mRvAdapter = CardAdapter()
         mDB.rvPicView.adapter = mRvAdapter

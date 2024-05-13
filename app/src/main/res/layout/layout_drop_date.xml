@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/time_show_layout"
+        android:layout_width="0dp"
+        android:layout_height="61dp"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_start_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="7.5dp"
+            android:paddingBottom="7.5dp"
+            android:text="2016/08/21"
+            android:textColor="@color/selector_date_picker"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/view_start_line"
+            app:layout_constraintLeft_toLeftOf="@+id/view_start_line"
+            app:layout_constraintRight_toRightOf="@+id/view_start_line"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="2016/08/21" />
+
+
+<!--        android:background="@drawable/selector_date_picker_line"-->
+        <View
+            android:id="@+id/view_start_line"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/tv_middle_tag"
+            app:layout_constraintTop_toBottomOf="@+id/tv_start_date" />
+
+        <TextView
+            android:id="@+id/tv_middle_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="13dp"
+            android:text="~"
+            android:textColor="#D9190F07"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_start_date"
+            app:layout_constraintLeft_toRightOf="@+id/view_start_line"
+            app:layout_constraintRight_toLeftOf="@+id/view_end_line"
+            app:layout_constraintTop_toTopOf="@+id/tv_start_date" />
+
+        <TextView
+            android:id="@+id/tv_end_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="7.5dp"
+            android:paddingBottom="7.5dp"
+            android:text="2016/08/21"
+            android:textColor="@color/selector_date_picker"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/view_end_line"
+            app:layout_constraintLeft_toLeftOf="@+id/view_end_line"
+            app:layout_constraintRight_toRightOf="@+id/view_end_line"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="2016/08/21" />
+
+
+        <!--            android:background="@color/selector_date_picker_line"-->
+
+        <View
+            android:id="@+id/view_end_line"
+            android:layout_width="0dp"
+            android:layout_height="0.5dp"
+            android:layout_marginRight="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/tv_middle_tag"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_end_date" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.dear.ui.widget.DatePickerView
+        android:id="@+id/time_picker"
+        android:layout_width="0dp"
+        android:layout_height="136.5dp"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time_show_layout" />
+
+    <TextView
+        android:id="@+id/tv_first_date"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:gravity="center"
+        android:text="目前选择最早支持到 %1$s"
+        android:textColor="#59190F07"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time_picker" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_first_date">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#eeeeee"
+            android:visibility="visible"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/resetButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="重置"
+            android:textColor="#A6190F07"
+            android:textSize="17sp"
+            android:visibility="visible"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/positiveButton" />
+
+        <View
+            android:id="@+id/v_center_line"
+            android:layout_width="1px"
+            android:layout_height="0dp"
+            android:background="#eeeeee"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/positiveButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="完成"
+            android:textColor="@color/theme_color"
+            android:textSize="17sp"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toRightOf="@+id/resetButton"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

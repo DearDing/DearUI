@@ -1,6 +1,6 @@
 
 
-package com.dear.ui.recyclerview.card;
+package com.dear.ui.widget.recyclerview.card;
 
 
 import android.animation.Animator;

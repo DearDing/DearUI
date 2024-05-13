@@ -1,4 +1,4 @@
-package com.dear.ui.recyclerview.card;
+package com.dear.ui.widget.recyclerview.card;
 
 import android.graphics.Canvas;
 import android.view.View;
