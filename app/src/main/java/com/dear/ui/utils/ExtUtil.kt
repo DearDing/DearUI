@@ -2,6 +2,7 @@ package com.dear.ui.utils
 
 import android.content.Context
 import android.text.TextUtils
+import android.util.DisplayMetrics
 import android.widget.Toast
 import com.dear.ui.BuildConfig
 import java.text.SimpleDateFormat
@@ -39,4 +40,14 @@ fun String.formatToDate(date:Date):String{
     val sdf = SimpleDateFormat(this, Locale.CHINA)
     sdf.timeZone = TimeZone.getTimeZone("GMT+8")
     return sdf.format(date)
+}
+
+fun dp2px(context: Context,dp: Int): Int {
+    return if (dp > 0) {
+        val metrics: DisplayMetrics = context.getResources().getDisplayMetrics()
+        val px = dp * (metrics.densityDpi / 160f)
+        px.toInt()
+    } else {
+        dp
+    }
 }

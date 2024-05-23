@@ -15,6 +15,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dear.ui.activity.DropFilterActivity
+import com.dear.ui.activity.RecyclerViewActivity
 import com.dear.ui.activity.TanTanActivity
 import com.dear.ui.activity.ViewPagerScroll2Activity
 import com.dear.ui.databinding.ActivityMainBinding
@@ -22,7 +23,7 @@ import com.dear.ui.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val textArr: Array<String> = arrayOf("仿探探卡片", "上下两个ViewPager联动","下拉筛选")
+    private val textArr: Array<String> = arrayOf("仿探探卡片", "上下两个ViewPager联动","下拉筛选","RecyclerView优化")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +47,9 @@ class MainActivity : AppCompatActivity() {
             }
             2->{
                 startActivity(Intent(this, DropFilterActivity::class.java))
-
+            }
+            3->{
+                startActivity(Intent(this, RecyclerViewActivity::class.java))
             }
         }
     }
