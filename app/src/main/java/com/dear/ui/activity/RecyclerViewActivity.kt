@@ -1,6 +1,7 @@
 package com.dear.ui.activity
 
 import android.graphics.Color
+import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
@@ -192,7 +193,19 @@ class RecyclerViewActivity : BaseActivity<ActivityRecyclerViewLayoutBinding>() {
     fun createAdapter(): RecyclerView.Adapter<ItemHolder> {
         return object : RecyclerView.Adapter<ItemHolder>() {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
-                return ItemHolder(createItemViewByCodeDSL(parent))
+                val timeStart = System.currentTimeMillis()
+                // 平均耗时 4-5ms （最优）
+                val view = createItemViewByCode(parent)
+
+                // 平均耗时 7-8ms
+                //val view = createItemViewByCodeDSL(parent)
+
+                // 平均耗时 7-8ms
+                //val view = createItemViewByXml(parent)
+
+                val timeEnd = System.currentTimeMillis()
+                Log.i("RecyclerView create time","use time = ${timeEnd-timeStart}")
+                return ItemHolder(view)
             }
 
             override fun getItemCount(): Int {
