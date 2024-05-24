@@ -1,6 +1,7 @@
 package com.dear.ui.build;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -41,7 +42,6 @@ public class ViewBuild {
         int cmarginRight = isdp ? dp2px(marginRight) : marginRight;
         int cmarginBottom = isdp ? dp2px(marginBottom) : marginBottom;
 
-
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(cwidth, cheight);
         params.setMargins(cmarginLeft, cmarginTop, cmarginRight, cmarginBottom);
         view.setLayoutParams(params);
@@ -49,8 +49,6 @@ public class ViewBuild {
     }
 
     public ViewBuild setConstraintLayoutParams(int width, int height) {
-        int cwidth = dp2px(width);
-        int cheight = dp2px(height);
         view.setLayoutParams(new ConstraintLayout.LayoutParams(dp2px(width), dp2px(height)));
         return this;
     }
@@ -63,17 +61,16 @@ public class ViewBuild {
         int cmarginRight = isdp ? dp2px(marginRight) : marginRight;
         int cmarginBottom = isdp ? dp2px(marginBottom) : marginBottom;
 
-
         ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(cwidth, cheight);
         params.setMargins(cmarginLeft, cmarginTop, cmarginRight, cmarginBottom);
         view.setLayoutParams(params);
         return this;
     }
 
-//    public ViewBuild setBackground(int colorId) {
-//        view.setBackground(SkinUtils.getSkinDrawable(view.getContext(), colorId));
-//        return this;
-//    }
+    public ViewBuild setBackground(Drawable drawable) {
+        view.setBackground(drawable);
+        return this;
+    }
 
     public View build() {
         return view;
