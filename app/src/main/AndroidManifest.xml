@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".UIApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -39,6 +40,9 @@
         <activity
             android:name=".activity.RecyclerViewActivity"
             android:launchMode="singleTop" />
+
+        <!--blockcanary 中的activity，避免merge activity失败-->
+        <activity android:name="com.github.moduth.blockcanary.ui.DisplayActivity" />
     </application>
 
 </manifest>
