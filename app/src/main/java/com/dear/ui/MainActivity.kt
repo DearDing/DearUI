@@ -2,34 +2,43 @@ package com.dear.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.dear.ui.activity.DropFilterActivity
-import com.dear.ui.activity.RecyclerViewActivity
-import com.dear.ui.activity.TanTanActivity
-import com.dear.ui.activity.ViewPagerScroll2Activity
+import com.dear.ui.activity.*
 import com.dear.ui.databinding.ActivityMainBinding
+import com.dear.ui.debug.TraceUtil
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val textArr: Array<String> = arrayOf("仿探探卡片", "上下两个ViewPager联动","下拉筛选","RecyclerView优化")
+    private val textArr: Array<String> = arrayOf("仿探探卡片", "上下两个ViewPager联动","下拉筛选","RecyclerView优化","MotionLayout实现折叠工具栏","仿高德三段式滑动效果")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initRecycleView()
+        //testMuchTime()
+    }
+
+    /**
+     * 测试 TraceUtil 工具，统计方法耗时
+     */
+    private fun testMuchTime(){
+        val startTime = System.currentTimeMillis()
+        Log.i("TraceUtil", "onCreate: startTime= ${startTime}")
+        for (index in 0..100000){
+            val result = index + 10
+            println(result)
+        }
+        val endTime = System.currentTimeMillis()
+        Log.i("TraceUtil", "onCreate: endTime= ${startTime}  total = ${endTime - startTime}")
     }
 
     private fun initRecycleView() {
@@ -50,6 +59,12 @@ class MainActivity : AppCompatActivity() {
             }
             3->{
                 startActivity(Intent(this, RecyclerViewActivity::class.java))
+            }
+            4->{
+                startActivity(Intent(this, MotionCollapsingActivity::class.java))
+            }
+            5->{
+                startActivity(Intent(this, VideoMotionActivity::class.java))
             }
         }
     }
@@ -88,5 +103,10 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        TraceUtil.stopTrace()
     }
 }

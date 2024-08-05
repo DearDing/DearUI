@@ -1,4 +1,4 @@
-package com.dear.ui;
+package com.dear.ui.debug;
 
 import android.content.Context;
 
