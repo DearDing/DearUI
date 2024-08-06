@@ -15,8 +15,4 @@ class UIApplication: Application() {
         TraceUtil.startTrace()
     }
 
-    override fun onTerminate() {
-        super.onTerminate()
-    }
-
 }

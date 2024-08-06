@@ -16,8 +16,11 @@ import com.dear.ui.debug.TraceUtil
 
 class MainActivity : AppCompatActivity() {
 
+    companion object{
+        private const val TAG = "MainActivity_TAG"
+    }
     private lateinit var binding: ActivityMainBinding
-    private val textArr: Array<String> = arrayOf("仿探探卡片", "上下两个ViewPager联动","下拉筛选","RecyclerView优化","MotionLayout实现折叠工具栏","仿高德三段式滑动效果")
+    private val textArr: Array<String> = arrayOf("仿探探卡片", "上下两个ViewPager联动","下拉筛选","RecyclerView优化","MotionLayout实现折叠工具栏","仿高德三段式滑动效果","可折叠的TextView")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +69,9 @@ class MainActivity : AppCompatActivity() {
             5->{
                 startActivity(Intent(this, VideoMotionActivity::class.java))
             }
+            6->{
+                startActivity(Intent(this, ExpandableTextActivity::class.java))
+            }
         }
     }
 
@@ -105,8 +111,31 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+    override fun onStart() {
+        super.onStart()
+        Log.i(TAG,"onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i(TAG,"onResume")
+    }
+
     override fun onPause() {
         super.onPause()
         TraceUtil.stopTrace()
+        Log.i(TAG,"onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(TAG,"onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(TAG,"onDestroy")
+
     }
 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.dear.ui.widget.textview.ExpandableTextView
+        android:id="@+id/tv_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:text="一直显示展开/收起" />
+
+    <com.dear.ui.widget.textview.ExpandableTextView
+        android:id="@+id/tv_2"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="可完全展示文本情况，不显示展开收起" />
+
+    <com.dear.ui.widget.textview.ExpandableTextView
+        android:id="@+id/tv_3"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="左侧带图片，展开收起" />
+
+</LinearLayout>
